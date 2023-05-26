@@ -1,0 +1,23 @@
+HKCR
+{
+    NoRemove CLSID
+    {
+        ForceRemove {5E2121EE-0300-11D4-8D3B-444553540000} = s 'SimpleShlExt Class'
+        {
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+        }
+    }
+    NoRemove txtfile
+    {
+        NoRemove ShellEx
+        {
+            NoRemove ContextMenuHandlers
+            {
+                ForceRemove SimpleShlExt = s '{5E2121EE-0300-11D4-8D3B-444553540000}'
+            }
+        }
+    }
+}
